@@ -1,9 +1,95 @@
 #include "Scene.h"
 #include "Cube.h"
 #include "CubeInsideOut.h"
+#include <random>
+
+//for random spectator bobbing positions
+uniform_real_distribution<double> distribution(0.000, 0.005);
 
 Scene::Scene() {
     /* VERTEX ARRAY OBJECT GEOMETRIES */
+    //Spectator shirt colours
+    vec3 posRightCrowd(30.0f, 8.0f, -8.0f);
+    vec3 red(1.0f, 0.0f, 0.0f);
+    vec3 yellow(1.0f, 1.0f, 0.0f);
+    vec3 purple(0.85f, 0.3f, 1.0f);
+    vec3 green(0.0f, 1.0f, 0.0f);
+    vec3 blue(0.0f, 0.0f, 1.0f);
+
+    //spectators on bleacher right
+    spect01 = Spectator(red, vec3(30.0f, 8.0f, -40.0f),  randYPos()); // test spectator
+    spect02 = Spectator(blue, vec3(30.0f, 8.0f, -30.0f),  randYPos()); // test spectator
+    spect03 = Spectator(green, vec3(30.0f, 8.0f, -20.0f),  randYPos()); // test spectator
+    spect04 = Spectator(purple, vec3(30.0f, 8.0f, -10.0f),  randYPos()); // test spectator
+    spect05 = Spectator(blue, vec3(30.0f, 8.0f, 0.0f),  randYPos()); // test spectator
+    spect06 = Spectator(yellow, vec3(30.0f, 8.0f, 10.0f),  randYPos()); // test spectator
+    spect07 = Spectator(red, vec3(30.0f, 8.0f, 20.0f),  randYPos()); // test spectator
+    spect08 = Spectator(green, vec3(30.0f, 8.0f, 30.0f),  randYPos()); // test spectator
+    spect09 = Spectator(purple, vec3(30.0f, 8.0f, 40.0f),  randYPos()); // test spectator
+    spect10 = Spectator(yellow, vec3(30.0f, 8.0f, 50.0f),  randYPos()); // test spectator
+
+    spect11 = Spectator(blue, vec3(40.0f, 14.0f, -40.0f),  randYPos()); // test spectator
+    spect12 = Spectator(green, vec3(40.0f, 14.0f, -30.0f),  randYPos()); // test spectator
+    spect13 = Spectator(yellow, vec3(40.0f, 14.0f, -20.0f),  randYPos()); // test spectator
+    spect14 = Spectator(red, vec3(40.0f, 14.0f, -10.0f),  randYPos()); // test spectator
+    spect15 = Spectator(green, vec3(40.0f, 14.0f, 0.0f),  randYPos()); // test spectator
+    spect16 = Spectator(purple, vec3(40.0f, 14.0f, 10.0f),  randYPos()); // test spectator
+    spect17 = Spectator(blue, vec3(40.0f, 14.0f, 20.0f),  randYPos()); // test spectator
+    spect18 = Spectator(red, vec3(40.0f, 14.0f, 30.0f),  randYPos()); // test spectator
+    spect19 = Spectator(green, vec3(40.0f, 14.0f, 40.0f),  randYPos()); // test spectator
+    spect20 = Spectator(blue, vec3(40.0f, 14.0f, 50.0f),  randYPos()); // test spectator
+
+    spect21 = Spectator(yellow, vec3(50.0f, 20.0f, -40.0f),  randYPos()); // test spectator
+    spect22 = Spectator(red, vec3(50.0f, 20.0f, -30.0f),  randYPos()); // test spectator
+    spect23 = Spectator(yellow, vec3(50.0f, 20.0f, -20.0f),  randYPos()); // test spectator
+    spect24 = Spectator(green, vec3(50.0f, 20.0f, -10.0f),  randYPos()); // test spectator
+    spect25 = Spectator(purple, vec3(50.0f, 20.0f, 0.0f),  randYPos()); // test spectator
+    spect26 = Spectator(blue, vec3(50.0f, 20.0f, 10.0f),  randYPos()); // test spectator
+    spect27 = Spectator(green, vec3(50.0f, 20.0f, 20.0f),  randYPos()); // test spectator
+    spect28 = Spectator(red, vec3(50.0f, 20.0f, 30.0f),  randYPos()); // test spectator
+    spect29 = Spectator(yellow, vec3(50.0f, 20.0f, 40.0f),  randYPos()); // test spectator
+    spect30 = Spectator(green, vec3(50.0f, 20.0f, 50.0f),  randYPos()); // test spectator
+
+
+    //spectators on bleacher left
+    spect31 = Spectator(red, vec3(-30.0f, 8.0f, -40.0f),  randYPos()); // test spectator
+    spect32 = Spectator(blue, vec3(-30.0f, 8.0f, -30.0f),  randYPos()); // test spectator
+    spect33 = Spectator(green, vec3(-30.0f, 8.0f, -20.0f),  randYPos()); // test spectator
+    spect34 = Spectator(purple, vec3(-30.0f, 8.0f, -10.0f),  randYPos()); // test spectator
+    spect35 = Spectator(blue, vec3(-30.0f, 8.0f, 0.0f),  randYPos()); // test spectator
+    spect36 = Spectator(yellow, vec3(-30.0f, 8.0f, 10.0f),  randYPos()); // test spectator
+    spect37 = Spectator(red, vec3(-30.0f, 8.0f, 20.0f),  randYPos()); // test spectator
+    spect38 = Spectator(green, vec3(-30.0f, 8.0f, 30.0f),  randYPos()); // test spectator
+    spect39 = Spectator(purple, vec3(-30.0f, 8.0f, 40.0f),  randYPos()); // test spectator
+    spect40 = Spectator(yellow, vec3(-30.0f, 8.0f, 50.0f),  randYPos()); // test spectator
+
+    spect41 = Spectator(blue, vec3(-40.0f, 14.0f, -40.0f),  randYPos()); // test spectator
+    spect42 = Spectator(green, vec3(-40.0f, 14.0f, -30.0f),  randYPos()); // test spectator
+    spect43 = Spectator(yellow, vec3(-40.0f, 14.0f, -20.0f),  randYPos()); // test spectator
+    spect44 = Spectator(red, vec3(-40.0f, 14.0f, -10.0f),  randYPos()); // test spectator
+    spect45 = Spectator(green, vec3(-40.0f, 14.0f, 0.0f),  randYPos()); // test spectator
+    spect46 = Spectator(purple, vec3(-40.0f, 14.0f, 10.0f),  randYPos()); // test spectator
+    spect47 = Spectator(blue, vec3(-40.0f, 14.0f, 20.0f),  randYPos()); // test spectator
+    spect48 = Spectator(red, vec3(-40.0f, 14.0f, 30.0f),  randYPos()); // test spectator
+    spect49 = Spectator(green, vec3(-40.0f, 14.0f, 40.0f),  randYPos()); // test spectator
+    spect50 = Spectator(blue, vec3(-40.0f, 14.0f, 50.0f),  randYPos()); // test spectator
+
+    spect51 = Spectator(yellow, vec3(-50.0f, 20.0f, -40.0f),  randYPos()); // test spectator
+    spect52 = Spectator(red, vec3(-50.0f, 20.0f, -30.0f),  randYPos()); // test spectator
+    spect53 = Spectator(yellow, vec3(-50.0f, 20.0f, -20.0f),  randYPos()); // test spectator
+    spect54 = Spectator(green, vec3(-50.0f, 20.0f, -10.0f),  randYPos()); // test spectator
+    spect55 = Spectator(purple, vec3(-50.0f, 20.0f, 0.0f),  randYPos()); // test spectator
+    spect56 = Spectator(blue, vec3(-50.0f, 20.0f, 10.0f),  randYPos()); // test spectator
+    spect57 = Spectator(green, vec3(-50.0f, 20.0f, 20.0f),  randYPos()); // test spectator
+    spect58 = Spectator(red, vec3(-50.0f, 20.0f, 30.0f),  randYPos()); // test spectator
+    spect59 = Spectator(yellow, vec3(-50.0f, 20.0f, 40.0f),  randYPos()); // test spectator
+    spect60 = Spectator(green, vec3(-50.0f, 20.0f, 50.0f),  randYPos()); // test spectator
+
+
+    bleacherR = Bleacher(vec3(10.0f, 0.0f, 0.0f), 0.0f);
+    bleacherL = Bleacher(vec3(10.0f, 0.0f, 0.0f), 180.0f);
+
+    
     Cube cubeGeneric = Cube(vec3(1.0f, 1.0f, 1.0f));
     CubeInsideOut cubeSky = CubeInsideOut(vec3(3.0f/255.0f, 207.0f/255.0f, 252.0f/255.0f));
     Cube cubeGridline = Cube(vec3(1.0f, 1.0f, 0.0f));
@@ -473,9 +559,88 @@ void Scene::drawScene(ShaderProgram shaderProgram) {
         glDrawArrays(this->renderingMode, 0, 36);
     }
 
+    //spectators on bleacher right
+    spect01.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect02.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect03.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect04.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect05.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect06.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect07.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect08.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect09.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    //spect10.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+
+    spect11.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect12.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect13.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect14.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect15.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect16.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect17.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect18.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect19.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    //spect20.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+
+    spect21.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect22.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect23.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect24.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect25.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect26.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect27.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect28.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect29.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    //spect30.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+
+
+    //spectators on bleacher left
+    spect31.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect32.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect33.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect34.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect35.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect36.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect37.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect38.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect39.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    //spect40.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+
+    spect41.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect42.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect43.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect44.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect45.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect46.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect47.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect48.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect49.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    //spect50.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+
+    spect51.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect52.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect53.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect54.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect55.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect56.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect57.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect58.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    spect59.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+    //spect60.draw(worldMatrix, shaderProgram,  rotation, this->ySpectPos);
+
+    bleacherR.draw(worldMatrix, shaderProgram);
+    bleacherL.draw(worldMatrix, shaderProgram);
+
     // Unbind any vao
     glBindVertexArray(0);
 
     // Set alpha value back to initial
     shaderProgram.setFloat("alphaValue", 1.0f);
+}
+
+float Scene::randYPos(){
+
+    float temp = distribution(gen);
+    //cout << "variance " << (temp) << endl;
+    return (temp);
 }
