@@ -19,7 +19,7 @@ Spectator::Spectator(vec3 col, vec3 pos, float variance){
     spectatorRightArmVAO = spectatorRightArm.getVertexBufferObject();
 };
 
-void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, GLuint renderingMode, float rotation, float dtpos) {
+void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, float rotation, float dtpos) {
     mat4 worldMatrix;
     mat4 groupMatrix = hierarchyModelMatrix;
 
@@ -43,7 +43,7 @@ void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, GLu
                         scale(mat4(1.0f), vec3(0.3f, 8.0f, 4.0f));
     worldMatrix = groupMatrix * partMatrix;
     shaderProgram.setWorldMatrix(worldMatrix);
-    glDrawArrays(renderingMode, 0, 36);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 
 
     glBindVertexArray(spectatorHeadVAO);
@@ -53,7 +53,7 @@ void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, GLu
                     scale(mat4(1.0f), vec3(3.2f, 3.2f, 0.3f));
     worldMatrix = groupMatrix * partMatrix;
     shaderProgram.setWorldMatrix(worldMatrix);
-    glDrawArrays(renderingMode, 0, 36);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 
         glBindVertexArray(spectatorLeftArmVAO);
     partMatrix = translate(mat4(1.0f), vec3(0.0f, 0.5f, 0.5f)) * 
@@ -63,7 +63,7 @@ void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, GLu
                     scale(mat4(1.0f), vec3(0.18f, 5.2f, 1.2f));
     worldMatrix = groupMatrix  * partMatrix*translate(mat4(1.0f), vec3(0.0f, -0.3f, -0.3f));
     shaderProgram.setWorldMatrix(worldMatrix);
-    glDrawArrays(renderingMode, 0, 36);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 
         glBindVertexArray(spectatorRightArmVAO);
     partMatrix = translate(mat4(1.0f), vec3(0.0f, 0.2f, 0.5f)) * 
@@ -74,7 +74,7 @@ void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, GLu
 
     worldMatrix = groupMatrix * partMatrix * translate(mat4(1.0f), vec3(0.0f, -0.3f, 0.4f));
     shaderProgram.setWorldMatrix(worldMatrix);
-    glDrawArrays(renderingMode, 0, 36);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
  
     if (!isDrawn){
 
