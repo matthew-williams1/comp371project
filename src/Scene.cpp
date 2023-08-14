@@ -25,24 +25,24 @@ Scene::Scene() {
 
     /* TEXTURES */
     // Load textures
-    this->skyTexture = Texture("./assets/textures/sky.jpg");
-    this->netPostTexture = Texture("./assets/textures/net/post.jpg");
-    this->netTopTexture = Texture("./assets/textures/net/top.jpg");
-    this->armTattooTexture = Texture("./assets/textures/racket/tattoo.jpg");
-    this->racketRedTexture = Texture("./assets/textures/racket/red.jpg");
-    this->racketGreyTexture = Texture("./assets/textures/racket/grey.jpg");
-    this->character1Texture.push_back(new Texture("./assets/textures/alphabet/blue1.jpg"));
-    this->character1Texture.push_back(new Texture("./assets/textures/alphabet/blue2.jpg"));
-    this->character1Texture.push_back(new Texture("./assets/textures/alphabet/blue3.jpg"));
-    this->character2Texture.push_back(new Texture("./assets/textures/alphabet/green1.jpg"));
-    this->character2Texture.push_back(new Texture("./assets/textures/alphabet/green2.jpg"));
-    this->character2Texture.push_back(new Texture("./assets/textures/alphabet/green3.jpg"));
-    this->character3Texture.push_back(new Texture("./assets/textures/alphabet/orange1.jpg"));
-    this->character3Texture.push_back(new Texture("./assets/textures/alphabet/orange2.jpg"));
-    this->character3Texture.push_back(new Texture("./assets/textures/alphabet/orange3.jpg"));
-    this->character4Texture.push_back(new Texture("./assets/textures/alphabet/pink1.jpg"));
-    this->character4Texture.push_back(new Texture("./assets/textures/alphabet/pink2.jpg"));
-    this->character4Texture.push_back(new Texture("./assets/textures/alphabet/pink3.jpg"));
+    this->skyTexture = Texture("../assets/textures/sky.jpg");
+    this->netPostTexture = Texture("../assets/textures/net/post.jpg");
+    this->netTopTexture = Texture("../assets/textures/net/top.jpg");
+    this->armTattooTexture = Texture("../assets/textures/racket/tattoo.jpg");
+    this->racketRedTexture = Texture("../assets/textures/racket/red.jpg");
+    this->racketGreyTexture = Texture("../assets/textures/racket/grey.jpg");
+    this->character1Texture.push_back(new Texture("../assets/textures/alphabet/blue1.jpg"));
+    this->character1Texture.push_back(new Texture("../assets/textures/alphabet/blue2.jpg"));
+    this->character1Texture.push_back(new Texture("../assets/textures/alphabet/blue3.jpg"));
+    this->character2Texture.push_back(new Texture("../assets/textures/alphabet/green1.jpg"));
+    this->character2Texture.push_back(new Texture("../assets/textures/alphabet/green2.jpg"));
+    this->character2Texture.push_back(new Texture("../assets/textures/alphabet/green3.jpg"));
+    this->character3Texture.push_back(new Texture("../assets/textures/alphabet/orange1.jpg"));
+    this->character3Texture.push_back(new Texture("../assets/textures/alphabet/orange2.jpg"));
+    this->character3Texture.push_back(new Texture("../assets/textures/alphabet/orange3.jpg"));
+    this->character4Texture.push_back(new Texture("../assets/textures/alphabet/pink1.jpg"));
+    this->character4Texture.push_back(new Texture("../assets/textures/alphabet/pink2.jpg"));
+    this->character4Texture.push_back(new Texture("../assets/textures/alphabet/pink3.jpg"));
 
     /* TENNIS RACKET MODEL INSTANTIATION */
     this->model.push_back(new TennisRacketModel(vec3(0.0f, 8.0f, 20.0f)));

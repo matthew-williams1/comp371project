@@ -70,8 +70,8 @@ int main(int argc, char* argv[]) {
     Scene scene;
 
     /* SHADERS */
-    ShaderProgram modelShaderProgram = ShaderProgram("./assets/shaders/vertex_shader.glsl", "./assets/shaders/fragment_shader.glsl");
-    ShaderProgram depthShaderProgram = ShaderProgram("./assets/shaders/depth_vertex_shader.glsl", "./assets/shaders/depth_fragment_shader.glsl");
+    ShaderProgram modelShaderProgram = ShaderProgram("../assets/shaders/vertex_shader.glsl", "../assets/shaders/fragment_shader.glsl");
+    ShaderProgram depthShaderProgram = ShaderProgram("../assets/shaders/depth_vertex_shader.glsl", "../assets/shaders/depth_fragment_shader.glsl");
 
     /* TEXTURES */
     modelShaderProgram.use();
