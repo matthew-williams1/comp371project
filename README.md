@@ -1,0 +1,67 @@
+# COMP371 — Programming Quiz 2
+
+### Added Features
+Some additional features were implemented to go beyond the expectations. The added functionalities include:
+- First-person cameras attached to each model translate and rotate fully with its model
+- The model-facing spotlight (spotlight1) has a random rotation pattern that can be toggled on/off
+- All lights can be toggled on/off
+- A hand model added as part of the arm model for more realistic and dynamic movement
+- Controlling the model position along the Z-axis for forward and backward displacement
+- Controlling the model rotation along both the X-axis for pitch adjustment and the Z-axis for roll adjustment
+- Controlling the world rotation along the Z-axis for roll adjustment
+- The ability to apply all rotational controls to the lower arm
+- The ability to apply all rotational controls to the hand
+- Reset the model position and rotation to default
+
+### User Controls:
+- **ESCAPE**: Exits the program
+- **1**: Selects the first tennis racket model and corresponding characters to be actively controlled
+- **2**: Selects the second tennis racket model and corresponding characters to be actively controlled
+- **SPACE**: Re-positions model at a random location on the grid
+- **U**: Incrementally scales the model up (larger)
+- **J**: Incrementally scales the model down (smaller)
+- **A**: Rotates the whole model negatively along the Y-axis
+- **SHIFT+A**: Displaces the whole model negatively along the X-axis
+- **CONTROL+A**: Rotates the lower arm in the model negatively along the Y-axis
+- **H+A**: Rotates the hand in the model negatively along the Y-axis
+- **D**: Rotates the whole model positively along the Y-axis
+- **SHIFT+D**: Displaces the whole model positively along the X-axis
+- **CONTROL+D**: Rotates the lower arm in the model positively along the Y-axis
+- **H+D**: Rotates the hand in the model positively along the Y-axis
+- **W**: Rotates the whole model negatively along the X-axis
+- **SHIFT+W**: Displaces the whole model positively along the Y-axis
+- **CONTROL+W**: Rotates the lower arm in the model negatively along the X-axis
+- **H+W**: Rotates the hand in the model negatively along the X-axis
+- **S**: Rotates the whole model positively along the X-axis
+- **SHIFT+S**: Displaces the whole model negatively along the Y-axis
+- **CONTROL+S**: Rotates the lower arm in the model positively along the X-axis
+- **H+S**: Rotates the hand in the model positively along the X-axis
+- **Q**: Rotates the whole model positively along the Z-axis
+- **SHIFT+Q**: Displaces the whole model positively along the Z-axis
+- **CONTROL+Q**: Rotates the lower arm in the model positively along the Z-axis
+- **H+Q**: Rotates the hand in the model positively along the Z-axis
+- **E**: Rotates the whole model negatively along the Z-axis
+- **SHIFT+E**: Displaces the whole model negatively along the Z-axis
+- **CONTROL+E**: Rotates the lower arm in the model negatively along the Z-axis
+- **H+E**: Rotates the hand in the model negatively along the Z-axis
+- **END**: Resets the model position and rotation to default
+- **LEFT-ARROW**: Rotates the world negatively along the X-axis
+- **SHIFT+LEFT-ARROW**: Rotates the world positively along the Z-axis
+- **ALT+LEFT-ARROW**: Displaces the camera positively along a circular path
+- **RIGHT-ARROW**: Rotates the world positively along the X-axis
+- **SHIFT+RIGHT-ARROW**: Rotates the world negatively along the Z-axis
+- **ALT+RIGHT-ARROW**: Displaces the camera negatively along a circular path
+- **UP-ARROW**: Rotates the world negatively along the Y-axis
+- **DOWN-ARROW**: Rotates the world positively along the Y-axis
+- **HOME**: Resets the world rotation to default
+- **P**: Sets the rendering mode to *POINTS*
+- **L**: Sets the rendering mode to *LINES*
+- **T**: Sets the rendering mode to *TRIANGLES*
+- **X**: Controls the toggling of textures
+- **B**: Controls the toggling of shadows
+- **SHIFT+B**: Controls the toggling of the pointlight
+- **SHIFT+L**: Controls the toggling of the model-facing spotlight (spotlight1)
+- **CONTROL+L**: Controls the toggling of the model-facing spotlight's rotation pattern
+- **SHIFT+SEMICOLON**: Controls the toggling of the rotating spotlight (spotlight2)
+- **M**: Controls the iteration through the cameras
+- **R**: Selects the main camera
