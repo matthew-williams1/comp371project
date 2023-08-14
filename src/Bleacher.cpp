@@ -30,7 +30,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(20.0f, 3.0f, 0.0f)) * 
                         scale(mat4(1.0f), vec3(5.0f, 1.0f, 88.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //middle seat plank
@@ -38,7 +38,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(30.0f, 9.0f, 0.0f)) * 
                         scale(mat4(1.0f), vec3(5.0f, 1.0f, 88.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //top seat plank
@@ -46,7 +46,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(40.0f, 15.0f, 0.0f)) * 
                         scale(mat4(1.0f), vec3(5.0f, 1.0f, 88.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //guardrails
@@ -55,7 +55,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(31.0f, 25.0f, -44.0f)) * 
                         scale(mat4(1.0f), vec3(22.5f, 0.5f, 0.5f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //top close
@@ -63,7 +63,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(31.0f, 25.0f, 44.0f)) * 
                         scale(mat4(1.0f), vec3(22.5f, 0.5f, 0.5f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //top back
@@ -71,7 +71,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(42.0f, 25.0f, 0.0f)) * 
                         scale(mat4(1.0f), vec3(0.5f, 0.5f, 90.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     float xpos_back = -40.0f;
@@ -84,7 +84,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(xpos, 12.4f, -44.0f)) * 
                         scale(mat4(1.0f), vec3(0.5f, 25.0f, 0.5f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
         xpos = 3.0f + xpos;
     }
@@ -95,7 +95,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(xpos_far, 12.4f, 44.0f)) * 
                         scale(mat4(1.0f), vec3(0.5f, 25.0f, 0.5f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
         xpos_far = 3.0f + xpos_far;
     }
@@ -106,7 +106,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(42.0f, 13.5f, xpos_back)) * 
                         scale(mat4(1.0f), vec3(0.5f, 23.0f, 0.5f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
     xpos_back += 3.0f;
     }
@@ -120,7 +120,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(30.0f, 0.0f, -44.0f)) * 
                         scale(mat4(1.0f), vec3(20.0f, 1.5f, 1.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //close ground support
@@ -128,7 +128,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(30.0f, 0.0f, 44.0f)) * 
                         scale(mat4(1.0f), vec3(20.0f, 1.5f, 1.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from middle seat plank on far side
@@ -136,7 +136,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(30.0f, 4.0f, -44.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 9.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from middle seat plank in the middle
@@ -144,7 +144,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(30.0f, 4.0f, 0.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 9.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from middle seat plank on close side
@@ -152,7 +152,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(30.0f, 4.0f, 44.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 9.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from the bottom seat plank on far side
@@ -160,7 +160,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(20.0f, 1.0f, -44.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 3.3f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from the bottom seat plank on close side
@@ -168,7 +168,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(20.0f, 1.0f, 44.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 3.3f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from the bottom seat plank in the middle
@@ -176,7 +176,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(20.0f, 1.0f, 0.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 3.3f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from the top seat plank on far side
@@ -184,7 +184,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(40.0f, 7.3f, -44.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 16.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from the top seat plank on close side
@@ -192,7 +192,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(40.0f, 7.3f, 44.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 16.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //support from the top seat plank in the middle
@@ -200,7 +200,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         translate(mat4(1.0f), vec3(40.0f, 7.3f, 0.0f)) * 
                         scale(mat4(1.0f), vec3(2.0f, 16.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     //cross braces
@@ -209,7 +209,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         rotate(mat4(1.0f), radians(72.0f), vec3(1.0f, 0.0f, 0.0f)) *
                         scale(mat4(1.0f), vec3(2.0f, 45.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     partMatrix = translate(mat4(1.0f), position) * 
@@ -217,7 +217,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         rotate(mat4(1.0f), radians(-72.0f), vec3(1.0f, 0.0f, 0.0f)) *
                         scale(mat4(1.0f), vec3(2.0f, 45.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
     partMatrix = translate(mat4(1.0f), position) * 
@@ -225,7 +225,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         rotate(mat4(1.0f), radians(72.0f), vec3(1.0f, 0.0f, 0.0f)) *
                         scale(mat4(1.0f), vec3(2.0f, 45.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
 
@@ -234,7 +234,7 @@ void Bleacher::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram){
                         rotate(mat4(1.0f), radians(-72.0f), vec3(1.0f, 0.0f, 0.0f)) *
                         scale(mat4(1.0f), vec3(2.0f, 45.0f, 2.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
 
