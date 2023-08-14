@@ -42,7 +42,7 @@ void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, flo
                         translate(mat4(1.0f), vec3(0.0f, 0.0f, 0.0f)) * 
                         scale(mat4(1.0f), vec3(0.3f, 8.0f, 4.0f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
 
@@ -52,7 +52,7 @@ void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, flo
                     rotationMatrix *
                     scale(mat4(1.0f), vec3(3.2f, 3.2f, 0.3f));
     worldMatrix = groupMatrix * partMatrix;
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
         glBindVertexArray(spectatorLeftArmVAO);
@@ -62,7 +62,7 @@ void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, flo
                     rotate(mat4(1.0f), radians(rotation), vec3(1.0f, 0.0f, 0.0f))*
                     scale(mat4(1.0f), vec3(0.18f, 5.2f, 1.2f));
     worldMatrix = groupMatrix  * partMatrix*translate(mat4(1.0f), vec3(0.0f, -0.3f, -0.3f));
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
         glBindVertexArray(spectatorRightArmVAO);
@@ -73,7 +73,7 @@ void Spectator::draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, flo
                     scale(mat4(1.0f), vec3(0.18f, 5.2f, 1.2f));
 
     worldMatrix = groupMatrix * partMatrix * translate(mat4(1.0f), vec3(0.0f, -0.3f, 0.4f));
-    shaderProgram.setWorldMatrix(worldMatrix);
+    shaderProgram.setMat4("worldMatrix", worldMatrix);
     glDrawArrays(GL_TRIANGLES, 0, 36);
  
     if (!isDrawn){
