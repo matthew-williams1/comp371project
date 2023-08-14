@@ -31,7 +31,7 @@ Spectator();
 
 Spectator(vec3 colour, vec3 position, float variance); 
 
-void draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, GLuint renderingMode, float rotation, float dtpos);
+void draw(mat4 hierarchyModelMatrix, ShaderProgram shaderProgram, float rotation, float dtpos);
 
 
 };
