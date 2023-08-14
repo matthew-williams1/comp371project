@@ -116,9 +116,6 @@ private:
     GLuint renderingMode;
     bool isAlphaEnabled;
 
-    /* SPECTATOR CONTROL VARIABLES */
-    float ySpectPos;
-    float rotation;
 public:
     vector<TennisRacketModel *> model;
 
@@ -154,6 +151,10 @@ public:
     float randYPos();
 
     void setSpectatorArms(float rot);
+
+    /* SPECTATOR CONTROL VARIABLES */
+    float ySpectPos;
+    float rotation;
 
     // random number generator
     default_random_engine gen;
