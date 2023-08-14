@@ -198,6 +198,12 @@ int main(int argc, char* argv[]) {
     /* OTHER CONTROL VARIABLES */
     int modelSelection = 0;
     float controlTimer = 0.0f;
+    
+    // SPECTATOR MOVEMENT VARIABLES */
+    GLfloat spectatorDPosY = 0.0f;
+    GLfloat spectatorYdt = 0.0f;
+    GLfloat frequency = 8.0f;
+    GLfloat amplitude = 0.005;
 
     /* ENTERING MAIN LOOP */
     while(!glfwWindowShouldClose(window)) {
@@ -230,6 +236,14 @@ int main(int argc, char* argv[]) {
         scene.drawScene(depthShaderProgram);
         glCullFace(GL_BACK);
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+        /*SPECTATORS*/
+        //Idle bobbing effect for spectators
+        spectatorDPosY = amplitude * cos(spectatorYdt * frequency);
+        scene.ySpectPos = spectatorDPosY;
+        cout << "pos: " << spectatorDPosY << endl;
+        float deltaTime = 0.5f; 
+        spectatorYdt += deltaTime * dt;
 
         // MODEL SCENE RENDERING
         modelShaderProgram.use();
@@ -277,6 +291,32 @@ int main(int argc, char* argv[]) {
         }
         if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
             modelSelection = 1;
+        }
+        //CONTROLS FOR SPECTATORS
+        //raises spectator arms
+        if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS) {
+            if (scene.rotation < 135.0f){
+            scene.rotation += 300.0f * dt;
+            }            
+        }
+        
+        //lowers spectator arms
+        if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS) {
+            if (scene.rotation > 1.0f) {
+            scene.rotation -= 300.0f * dt;
+            }            
+        }
+
+        //Reset spectator to idle bobbing speed
+        if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS) {
+            frequency = 45.0f;
+            amplitude = 0.1;
+        }
+
+        //Sets spectator bob speed to high (celebration)
+        if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS) {
+            frequency = 8.0f;
+            amplitude = 0.005;
         }
 
         // Re-positions model at a random location on the grid
