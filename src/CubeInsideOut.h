@@ -1,5 +1,5 @@
-#ifndef QUIZ_2_CUBEINSIDEOUT_H
-#define QUIZ_2_CUBEINSIDEOUT_H
+#ifndef PROJECT_CUBEINSIDEOUT_H
+#define PROJECT_CUBEINSIDEOUT_H
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
@@ -17,4 +17,4 @@ public:
     GLuint getVertexBufferObject();
 };
 
-#endif //QUIZ_2_CUBEINSIDEOUT_H
+#endif //PROJECT_CUBEINSIDEOUT_H

@@ -1,5 +1,5 @@
-#ifndef QUIZ_2_SCENE_H
-#define QUIZ_2_SCENE_H
+#ifndef PROJECT_SCENE_H
+#define PROJECT_SCENE_H
 
 #include "ShaderProgram.h"
 #include "Texture.h"
@@ -74,4 +74,4 @@ public:
     void setIsAlphaEnabled(bool isAlphaEnabled);
 };
 
-#endif //QUIZ_2_SCENE_H
+#endif //PROJECT_SCENE_H

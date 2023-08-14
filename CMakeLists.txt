@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.11)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(Quiz2)
+project(Project)
 
 include(ExternalProject)
 
@@ -21,8 +21,8 @@ include(BuildGLEW)
 include(BuildGLFW)
 include(BuildGLM)
 
-# quiz2
-set(EXEC quiz2)
+# project
+set(EXEC project)
 
 file(GLOB SRC src/*.cpp)
 
@@ -33,7 +33,14 @@ target_include_directories(${EXEC} PRIVATE include)
 target_link_libraries(${EXEC} OpenGL::GL glew_s glfw glm)
 
 list(APPEND BIN ${EXEC})
-# end quiz2
+# end project
 
 # install files to install location
 install(TARGETS ${BIN} DESTINATION ${CMAKE_INSTALL_PREFIX})
+
+# copy assets
+add_custom_target(copy_assets
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/assets ${CMAKE_CURRENT_BINARY_DIR}/assets
+        COMMENT "Copying assets to ${CMAKE_CURRENT_BINARY_DIR}/assets")
+
+add_dependencies(${EXEC} copy_assets)

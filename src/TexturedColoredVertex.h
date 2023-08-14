@@ -1,5 +1,5 @@
-#ifndef PA2_TEXTUREDCOLOREDVERTEX_H
-#define PA2_TEXTUREDCOLOREDVERTEX_H
+#ifndef PROJECT_TEXTUREDCOLOREDVERTEX_H
+#define PROJECT_TEXTUREDCOLOREDVERTEX_H
 
 #include <glm/glm.hpp>
 
@@ -17,4 +17,4 @@ public:
     TexturedColoredVertex(vec3 position, vec3 color, vec3 normal, vec2 uv);
 };
 
-#endif //PA2_TEXTUREDCOLOREDVERTEX_H
+#endif //PROJECT_TEXTUREDCOLOREDVERTEX_H

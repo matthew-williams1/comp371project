@@ -1,5 +1,5 @@
-#ifndef PA1_CUBE_H
-#define PA1_CUBE_H
+#ifndef PROJECT_CUBE_H
+#define PROJECT_CUBE_H
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
@@ -17,4 +17,4 @@ public:
     GLuint getVertexBufferObject();
 };
 
-#endif //PA1_CUBE_H
+#endif //PROJECT_CUBE_H

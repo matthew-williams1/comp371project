@@ -1,5 +1,5 @@
-#ifndef PA2_TEXTURE_H
-#define PA2_TEXTURE_H
+#ifndef PROJECT_TEXTURE_H
+#define PROJECT_TEXTURE_H
 
 class Texture {
 private:
@@ -14,4 +14,4 @@ public:
     void use();
 };
 
-#endif //PA2_TEXTURE_H
+#endif //PROJECT_TEXTURE_H

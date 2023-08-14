@@ -1,5 +1,5 @@
-#ifndef QUIZ_2_SHADERPROGRAM_H
-#define QUIZ_2_SHADERPROGRAM_H
+#ifndef PROJECT_SHADERPROGRAM_H
+#define PROJECT_SHADERPROGRAM_H
 
 #include <iostream>
 #include <glm/glm.hpp>  // GLM is an optimized math library with syntax to similar to OpenGL Shading Language
@@ -40,4 +40,4 @@ public:
     void setMat4(const char* name, const mat4 &mat) const;
 };
 
-#endif //QUIZ_2_SHADERPROGRAM_H
+#endif //PROJECT_SHADERPROGRAM_H

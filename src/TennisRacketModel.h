@@ -1,5 +1,5 @@
-#ifndef QUIZ_1_TENNISRACKETMODEL_H
-#define QUIZ_1_TENNISRACKETMODEL_H
+#ifndef PROJECT_TENNISRACKETMODEL_H
+#define PROJECT_TENNISRACKETMODEL_H
 
 #include <glm/glm.hpp>
 
@@ -84,4 +84,4 @@ public:
     void setModelScaleRate(float rate);
 };
 
-#endif //QUIZ_1_TENNISRACKETMODEL_H
+#endif //PROJECT_TENNISRACKETMODEL_H

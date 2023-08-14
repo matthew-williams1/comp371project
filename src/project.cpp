@@ -1,5 +1,5 @@
 //
-// COMP 371 Programming Quiz 2
+// COMP 371 Programming Project
 // By Jonathan Hubermann #40125401
 //
 
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
     // Create Window and rendering context using GLFW, resolution is 1024x768
     int windowWidth = 1024;
     int windowHeight = 768;
-    GLFWwindow* window = glfwCreateWindow(windowWidth, windowHeight, "Comp371 - Quiz2", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(windowWidth, windowHeight, "Comp371 - Project", NULL, NULL);
     if (window == NULL) {
         std::cerr << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -70,8 +70,8 @@ int main(int argc, char* argv[]) {
     Scene scene;
 
     /* SHADERS */
-    ShaderProgram modelShaderProgram = ShaderProgram("/Users/jonathan/Documents/Concordia/Summer 2023/COMP 371.nosync/Quizzes/Quiz 2/code/assets/shaders/vertex_shader.glsl", "/Users/jonathan/Documents/Concordia/Summer 2023/COMP 371.nosync/Quizzes/Quiz 2/code/assets/shaders/fragment_shader.glsl");
-    ShaderProgram depthShaderProgram = ShaderProgram("/Users/jonathan/Documents/Concordia/Summer 2023/COMP 371.nosync/Quizzes/Quiz 2/code/assets/shaders/depth_vertex_shader.glsl", "/Users/jonathan/Documents/Concordia/Summer 2023/COMP 371.nosync/Quizzes/Quiz 2/code/assets/shaders/depth_fragment_shader.glsl");
+    ShaderProgram modelShaderProgram = ShaderProgram("./assets/shaders/vertex_shader.glsl", "./assets/shaders/fragment_shader.glsl");
+    ShaderProgram depthShaderProgram = ShaderProgram("./assets/shaders/depth_vertex_shader.glsl", "./assets/shaders/depth_fragment_shader.glsl");
 
     /* TEXTURES */
     modelShaderProgram.use();
