@@ -634,6 +634,130 @@ void Scene::drawScene(ShaderProgram shaderProgram) {
     // Unbind any vao
     glBindVertexArray(0);
 
+    //Model and draw the referee chair
+    glBindVertexArray(this->vaoGeneric);
+    //rails
+    //front right
+        modelMatrix = translate(mat4(1.0f), vec3(0.0f, 10.0f, 0.0f)) * 
+                        rotate(mat4(1.0f), radians(20.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(2.0f, 20.0f, 0.5f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        modelMatrix = translate(mat4(1.0f), vec3(0.0f, 10.0f, 5.0f)) * 
+                        rotate(mat4(1.0f), radians(20.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(2.0f, 20.0f, 0.5f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        modelMatrix = translate(mat4(1.0f), vec3(-6.0f, 10.0f, 0.0f)) * 
+                        rotate(mat4(1.0f), radians(-20.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(2.0f, 20.0f, 0.5f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        modelMatrix = translate(mat4(1.0f), vec3(-6.0f, 10.0f, 5.0f)) * 
+                        rotate(mat4(1.0f), radians(-20.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(2.0f, 20.0f, 0.5f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    //steps
+        modelMatrix = translate(mat4(1.0f), vec3(2.5f, 3.0f, 2.5f)) * 
+                        scale(mat4(1.0f), vec3(2.0f, 0.5f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        modelMatrix = translate(mat4(1.0f), vec3(1.5f, 6.0f, 2.5f)) * 
+                        scale(mat4(1.0f), vec3(2.0f, 0.5f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        modelMatrix = translate(mat4(1.0f), vec3(0.4f, 9.0f, 2.5f)) * 
+                        scale(mat4(1.0f), vec3(2.0f, 0.5f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        modelMatrix = translate(mat4(1.0f), vec3(-0.7f, 12.0f, 2.5f)) * 
+                        scale(mat4(1.0f), vec3(2.0f, 0.5f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        //seat
+        modelMatrix = translate(mat4(1.0f), vec3(-3.0f, 17.0f, 2.5f)) * 
+                        scale(mat4(1.0f), vec3(4.0f, 0.5f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        //backrest
+        modelMatrix = translate(mat4(1.0f), vec3(-5.3f, 22.0f, 2.5f)) * 
+                        rotate(mat4(1.0f), radians(10.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(0.5f, 2.0f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        //backrest support left
+        modelMatrix = translate(mat4(1.0f), vec3(-5.0f, 20.0f, 0.0f)) * 
+                        rotate(mat4(1.0f), radians(10.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(0.8f, 6.0f, 0.5f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        //backrest support right
+        modelMatrix = translate(mat4(1.0f), vec3(-5.0f, 20.0f, 5.0f)) * 
+                        rotate(mat4(1.0f), radians(10.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(0.8f, 6.0f, 0.5f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        //armrest support right
+        modelMatrix = translate(mat4(1.0f), vec3(-2.0f, 19.5f, 5.0f)) * 
+                        scale(mat4(1.0f), vec3(5.0f, 1.0f, 0.7f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        //armrest support left
+        modelMatrix = translate(mat4(1.0f), vec3(-2.0f, 19.5f, 0.0f)) * 
+                        scale(mat4(1.0f), vec3(5.0f, 1.0f, 0.7f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        //rear leg supports
+        modelMatrix = translate(mat4(1.0f), vec3(-5.0f, 14.5f, 2.5f)) * 
+                        rotate(mat4(1.0f), radians(-20.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(0.5f, 1.0f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        modelMatrix = translate(mat4(1.0f), vec3(-6.3f, 10.5f, 2.5f)) * 
+                        rotate(mat4(1.0f), radians(-20.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(0.5f, 1.0f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        modelMatrix = translate(mat4(1.0f), vec3(-7.8f, 6.5f, 2.5f)) * 
+                        rotate(mat4(1.0f), radians(-20.0f), vec3(0.0f, 0.0f, 1.0f)) *
+                        scale(mat4(1.0f), vec3(0.5f, 1.0f, 5.0f));
+        modelMatrix = worldMatrix * modelMatrix;
+        shaderProgram.setMat4("worldMatrix", modelMatrix);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
     // Set alpha value back to initial
     shaderProgram.setFloat("alphaValue", 1.0f);
 }
